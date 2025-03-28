@@ -1,0 +1,155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-24 09:49+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: quotes_app/forms.py:9
+msgid "author_name"
+msgstr ""
+
+#: quotes_app/forms.py:10
+msgid "author_birth_date"
+msgstr ""
+
+#: quotes_app/forms.py:11
+msgid "author_birth_location"
+msgstr ""
+
+#: quotes_app/forms.py:12 quotes_app/templates/quotes_app/author/page.html:35
+msgid "author_description"
+msgstr ""
+
+#: quotes_app/forms.py:20
+msgid "tag_name"
+msgstr ""
+
+#: quotes_app/forms.py:27
+msgid "quote_author"
+msgstr ""
+
+#: quotes_app/forms.py:28
+msgid "quote_text"
+msgstr ""
+
+#: quotes_app/forms.py:29
+msgid "select_tags"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/author/details.html:9
+#: quotes_app/templates/quotes_app/author/page.html:32
+msgid "born"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/author/details.html:9
+#: quotes_app/templates/quotes_app/author/page.html:32
+msgid "in"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/author/details.html:12
+msgid "description"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/author/page.html:7
+#: quotes_app/templates/quotes_app/index.html:21
+msgid "add_author"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/author/page.html:16
+#: quotes_app/templates/quotes_app/quote/page.html:16
+#: quotes_app/templates/quotes_app/tag/details.html:16
+msgid "prev_page"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/author/page.html:21
+#: quotes_app/templates/quotes_app/quote/page.html:21
+#: quotes_app/templates/quotes_app/tag/details.html:21
+msgid "next_page"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/base.html:17
+msgid "welcome"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/base.html:18
+msgid "logout"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/base.html:20
+msgid "register"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/base.html:21
+msgid "login"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/create.html:10
+msgid "submit"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/create.html:11
+msgid "reset"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/index.html:22
+msgid "add_tag"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/index.html:23
+#: quotes_app/templates/quotes_app/quote/page.html:7
+msgid "add_quote"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/index.html:28
+msgid "show_authors"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/index.html:29
+msgid "show_tags"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/index.html:30
+msgid "show_quotes"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/quote/details.html:9
+#: quotes_app/templates/quotes_app/quote/page.html:32
+#: quotes_app/templates/quotes_app/tag/details.html:32
+msgid "by"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/quote/details.html:10
+#: quotes_app/templates/quotes_app/quote/page.html:33
+#: quotes_app/templates/quotes_app/tag/details.html:33
+msgid "author_about"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/quote/details.html:13
+msgid "quote_tags"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/quote/page.html:36
+#: quotes_app/templates/quotes_app/tag/details.html:36
+msgid "tags"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/tag/details.html:6
+msgid "tag_not_found"
+msgstr ""
+
+#: quotes_app/templates/quotes_app/tag/details.html:9
+msgid "viewing_tag"
+msgstr ""

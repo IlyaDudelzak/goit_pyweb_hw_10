@@ -1,0 +1,34 @@
+{% extends "quotes_app/base.html" %}
+
+
+{% block navigation %}
+{% load i18n %}
+
+{% if request.user.is_superuser %}
+<li><form action="{% url 'quotes_app:parse_quotes' %}" method="post" style="margin-top: 10px;">
+    {% csrf_token %}
+    <button type="submit" class="button">Parse Quotes</button>
+</li>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+{% load i18n %}
+
+<nav class="secondary-navigation">
+    <ul>
+        <li><a href="{% url 'quotes_app:author_create' %}" role="button">{% trans "add_author" %}</a></li>
+        <li><a href="{% url 'quotes_app:tag_create' %}" role="button">{% trans "add_tag" %}</a></li>
+        <li><a href="{% url 'quotes_app:quote_create' %}" role="button">{% trans "add_quote" %}</a></li>
+    </ul>
+</nav>
+<nav class="secondary-navigation">
+    <ul>
+        <li><a href="{% url 'quotes_app:author_page' 1 %}" role="button">{% trans "show_authors" %}</a></li>
+        <li><a href="{% url 'quotes_app:tag_page' 1 %}" role="button">{% trans "show_tags" %}</a></li>
+        <li><a href="{% url 'quotes_app:quote_page' 1 %}" role="button">{% trans "show_quotes" %}</a></li>
+    </ul>
+</nav>
+
+{% endblock %}

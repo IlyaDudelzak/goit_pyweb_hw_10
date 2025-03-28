@@ -1,0 +1,27 @@
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "3245:3245"
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - db
+    command: ["./scripts/wait_for_db.sh", "db", "gunicorn", "pyweb_hw_10.wsgi:application", "--bind", "0.0.0.0:3245"]
+
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    # Не публикуем порт наружу
+
+volumes:
+  postgres_data:

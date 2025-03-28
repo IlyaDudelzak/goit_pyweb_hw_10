@@ -1,0 +1,16 @@
+{% extends 'quotes_app/base.html' %}
+
+{% block content %}
+  <h2>Quotes from quotes.toscrape.com</h2>
+  <ul>
+    {% for quote in quotes %}
+      <li>
+        <blockquote>
+          <p>{{ quote.text }}</p>
+          <footer>— {{ quote.author.name }}</footer>
+          <small>Tags: {{ quote.tags.all|join:", " }}</small>
+        </blockquote>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

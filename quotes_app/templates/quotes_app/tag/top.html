@@ -1,0 +1,12 @@
+{% load quote_tags %}
+
+<div class="tag-cloud">
+    {% top_tags as tags %}
+    {% for tag, size in tags %}
+        <div>
+            <a href="{% url 'quotes_app:tag_details' tag.name %}" class="tag-button" style="font-size: {{ size }}px;">
+                {{ tag.name }}
+            </a>
+        </div>
+    {% endfor %}
+</div>

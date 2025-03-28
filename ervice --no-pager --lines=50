@@ -1,0 +1,8 @@
+● django.service - Django Gunicorn Service
+     Loaded: loaded (]8;;file://ubuntu-4gb-hel1-1/etc/systemd/system/django.service/etc/systemd/system/django.service]8;;; [0;1;32menabled[0m; preset: [0;1;32menabled[0m)
+     Active: activating (auto-restart) (Result: exit-code) since Sat 2025-02-22 10:47:25 UTC; 28ms ago
+    Process: 123945 ExecStart=/var/goit/pyweb_hw_10/.venv/bin/gunicorn --workers 3 --bind unix:/run/gunicorn.sock pyweb_hw_10.wsgi:application [0;1;31m(code=exited, status=217/USER)[0m
+   Main PID: 123945 (code=exited, status=217/USER)
+        CPU: 3ms
+
+Feb 22 10:47:25 ubuntu-4gb-hel1-1 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mdjango.service: Failed with result 'exit-code'.[0m

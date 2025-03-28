@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'quotes_app/style.css' %}" />
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body>
+    {% load i18n %}
+    {% include "quotes_app/tag/top.html" %} 
+    <main class="container" style="width:100% height:100%">
+      <nav class="main-navigation">
+        <ul style="width: 100%">
+          <li><h1><a href="/" style="text-decoration: none">Quotes to GoIT</a></h1></li>
+          {% if request.user.is_authenticated %}
+            <li><h4>{% trans 'welcome'%}, {{ request.user.username }}</h4></li>
+            <li><a href="{% url 'users:profile' %}" role="button">{% trans 'profile' %}</a></li>
+            <li><a href="{% url 'users:logout' %}" role="button">{% trans 'logout' %}</a></li>
+          {% else %}
+            <li><a href="{% url 'users:register' %}" role="button">{% trans 'register' %}</a></li>
+            <li><a href="{% url 'users:login' %}" role="button" >{% trans 'login' %}</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+      <nav class="secondary-navigation" style="border-bottom: 2px solid; border-top: 2px solid; padding-left: 30px">
+        <ul>
+          {% block navigation %}
+
+          {% endblock %}
+        </ul>
+      </nav>
+      {% block content %}
+
+      {% endblock %}
+    </main>
+  </body>
+</html>

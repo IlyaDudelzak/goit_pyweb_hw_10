@@ -1,0 +1,37 @@
+{% extends 'quotes_app/base.html' %}
+
+{% block navigation %}
+  {% load i18n %}
+
+  <li>
+    <a href="{% url 'quotes_app:tag_create' %}" role="button">{% trans 'add_tag' %}</a>
+  </li>
+{% endblock %}
+
+{% block content %}
+  <nav class="secondary-navigation">
+    <ul>
+      {% if lpe %}
+        <li>
+          <a href="{% url 'quotes_app:tag_page' page|add:'-1' %}" role="button">{% trans 'prev_page' %}</a>
+        </li>
+      {% endif %}
+      {% if hpe %}
+        <li>
+          <a href="{% url 'quotes_app:tag_page' page|add:'1' %}" role="button" style="position: absolute; right: 10px;">{% trans 'next_page' %}</a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+
+  <div class="col-md-8">
+    {% for tag in tags %}
+      <h3>
+        <a href="{% url 'quotes_app:tag_details' tag.name %}" class="tag-button">
+          {{ tag.name }}
+        </a>
+        <span style="font-size: small; color: gray;">{% trans 'has' %} {{ tag.num_quotes }} {% trans 'quotes' %}</span>
+      </h3>
+    {% endfor %}
+  </div>
+{% endblock %}

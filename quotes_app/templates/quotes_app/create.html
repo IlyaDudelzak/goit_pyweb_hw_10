@@ -1,0 +1,14 @@
+{% extends 'quotes_app/base.html' %}
+
+{% block content %}
+  {% load i18n %}
+
+  <form method="POST" action="{{request.path}}">
+    {% csrf_token %}
+    {{ form }}
+    <div class="grid">
+      <button type="submit">{% trans 'submit' %}</button>
+      <button type="reset" class="secondary">{% trans 'reset' %}</button>
+    </div>
+  </form>
+{% endblock %}

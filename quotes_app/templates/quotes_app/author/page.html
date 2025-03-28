@@ -1,0 +1,43 @@
+{% extends 'quotes_app/base.html' %}
+
+{% block navigation %}
+  {% load i18n %}
+
+  <li>
+    <a href="{% url 'quotes_app:author_create' %}" role="button">{% trans 'add_author' %}</a>
+  </li>
+{% endblock %}
+
+{% block content %}
+  <nav style="margin-bottom: 20px; border-bottom: 2px solid; border-top: 2px solid; padding-left: 30px;">
+    <ul style="position: relative; width: 100%">
+      {% if lpe %}
+        <li>
+          <a href="{% url 'quotes_app:author_page' page|add:'-1' %}" role="button">{% trans 'prev_page' %}</a>
+        </li>
+      {% endif %}
+      {% if hpe %}
+        <li>
+          <a href="{% url 'quotes_app:author_page' page|add:'1' %}" role="button" style="position: absolute; right: 10px;">{% trans 'next_page' %}</a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+
+  {% if ok %}
+    {% for item in items %}
+      <div class="quote">
+        <h3 class="author-title">{{ item.name }}</h3>
+        <p>
+          <strong>{% trans 'born' %}:</strong> <span class="author-born-date">{{ item.born_date }}</span> <span class="author-born-location">{% trans 'in' %} {{ item.born_location }}</span>
+        </p>
+        <p>
+          <strong>{% trans 'author_description' %}:</strong>
+        </p>
+        <div class="author-description">{{ item.description }}</div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <h2>Page {{ page }} does not exist.</h2>
+  {% endif %}
+{% endblock %}

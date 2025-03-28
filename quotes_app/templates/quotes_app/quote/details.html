@@ -1,0 +1,18 @@
+{% extends 'quotes_app/base.html' %}
+
+{% block content %}
+  {% load i18n %}
+
+  <div class="quote" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <span class="text" itemprop="text">“{{ item.text }}”</span>
+    <span>
+      {% trans 'by' %} <small class="author" itemprop="author">{{ item.author.name }}</small>
+      <a href="/author/item.author.pk">({% trans 'author_about' %})</a>
+    </span>
+    <div class="tags">
+      {% trans 'quote_tags' %}:<meta class="keywords" itemprop="keywords" content="change,deep-thoughts,thinking,world" />
+
+      <a class="tag" href="/tag/change/page/1/">change</a>
+    </div>
+  </div>
+{% endblock %}

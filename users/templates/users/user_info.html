@@ -1,0 +1,11 @@
+{% extends "quotes_app/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "user_information" %}{% endblock %}
+{% block content %}
+<h1>{% trans "user_information" %}</h1>
+<p><strong>{% trans "username" %}:</strong> {{ user.username }}</p>
+<p><strong>{% trans "email" %}:</strong> {{ user.email }}</p>
+<p><strong>{% trans "first_name" %}:</strong> {{ user.first_name }}</p>
+<p><strong>{% trans "last_name" %}:</strong> {{ user.last_name }}</p>
+<a href="{% url 'users:logout' %}">{% trans "logout" %}</a>
+{% endblock %}
