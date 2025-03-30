@@ -278,16 +278,13 @@ def parse_quotes(request):
                 # print(author.description)
                 author.save()
 
-            # Save quote
             quote, _ = Quote.objects.get_or_create(text=text, author=author)
 
-            # Save tags
             for tag_name in tags:
                 print(tag_name)
                 tag, _ = Tag.objects.get_or_create(name=tag_name)
                 quote.tags.add(tag)
 
-        # Check for the next page
         next_page = soup.find('li', class_='next')
         url = BASE_URL + next_page.find('a')['href'] if next_page else None
 
