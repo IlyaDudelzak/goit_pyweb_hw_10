@@ -1,3 +1,4 @@
+# Docker Compose configuration for the 'pyweb_hw_10' project.
 services:
   web:
     build: .
@@ -11,7 +12,6 @@ services:
     depends_on:
       - db
     command: ["./scripts/wait_for_db.sh", "db", "gunicorn", "pyweb_hw_10.wsgi:application", "--bind", "0.0.0.0:3245"]
-
 
   db:
     image: postgres:13

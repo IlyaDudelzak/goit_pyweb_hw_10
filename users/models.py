@@ -6,6 +6,9 @@ from django.db import connection
 
 # Extending User Model Using a One-To-One Link
 class Profile(models.Model):
+    """
+    Profile model extending the default User model with an avatar field.
+    """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(default='default_avatar.jpg', upload_to='profile_images')
 
@@ -14,6 +17,9 @@ class Profile(models.Model):
 
     # resizing images
     def save(self, *args, **kwargs):
+        """
+        Override the save method to resize the avatar image if necessary.
+        """
         super().save()
 
         img = Image.open(self.avatar.path)

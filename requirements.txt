@@ -20,3 +20,4 @@ whitenoise
 requests 
 beautifulsoup4
 pillow
+sphinx

@@ -1,4 +1,8 @@
 """
+URL configuration for the 'pyweb_hw_10' project.
+"""
+
+"""
 URL configuration for pyweb_hw_10 project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:

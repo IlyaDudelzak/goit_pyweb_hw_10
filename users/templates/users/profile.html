@@ -1,4 +1,5 @@
 {% extends "quotes_app/base.html" %}
+{% load i18n %}
 
 {% block content %}
 
@@ -30,8 +31,11 @@
         <button type="submit">Save Changes</button>
         <button type="reset" class="secondary">Reset</button>
     </div>
-
 </form>
+
+<div style="margin-top: 20px;">
+    <a href="{% url 'users:password_reset' %}" class="button">Reset Password</a>
+</div>
 
 {% endblock content %}
 

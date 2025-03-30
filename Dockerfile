@@ -1,3 +1,4 @@
+# Dockerfile for building the 'pyweb_hw_10' project container.
 # Используем официальный образ Python
 FROM python:3.13-slim
 
