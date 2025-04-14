@@ -5,7 +5,6 @@
 
 <div>
     <h1>Profile page: {{user.username}}</h1>
-    <img src="{{ user.profile.avatar.url }}" alt="avatar of user"/>
 </div>
 
 {% if messages %}
@@ -16,26 +15,11 @@
 </div>
 {% endif %}
 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="form-row">
-        <div class="col-md-5">
-            <div class="form-group">
-                <label class="small mb-1">Change Avatar:</label>
-                {{ profile_form.avatar }}
-                <span>{{ profile_form.errors.avatar }}</span>
-            </div>
-        </div>
-    </div>
-    <div class="grid">
-        <button type="submit">Save Changes</button>
-        <button type="reset" class="secondary">Reset</button>
-    </div>
-</form>
-
+{# not implemented yet
 <div style="margin-top: 20px;">
     <a href="{% url 'users:password_reset' %}" class="button">Reset Password</a>
-</div>
+</div>  
+#}
 
 {% endblock content %}
 

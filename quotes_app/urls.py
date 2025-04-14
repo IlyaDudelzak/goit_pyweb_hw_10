@@ -20,5 +20,4 @@ urlpatterns = [
     path('author/page/<int:page>', views.author_page, name='author_page'),
     path('tag/page/<int:page>', views.tag_page, name='tag_page'),
     path('quote/page/<int:page>', views.quote_page, name='quote_page'),
-    path('test', views.test),
 ]

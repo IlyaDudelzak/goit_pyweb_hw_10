@@ -19,5 +19,4 @@ python-dotenv
 whitenoise
 requests 
 beautifulsoup4
-pillow
 sphinx
