@@ -14,11 +14,6 @@ BASE_URL = 'https://quotes.toscrape.com'
 def main(request):
     """
     Render the main page.
-
-    :param request: The HTTP request object.
-    :type request: HttpRequest
-    :return: Rendered main page.
-    :rtype: HttpResponse
     """
     return render(request, 'quotes_app/index.html')
 
@@ -26,11 +21,6 @@ def main(request):
 def author_create(request):
     """
     Handle the creation of a new author.
-
-    :param request: The HTTP request object.
-    :type request: HttpRequest
-    :return: Redirect to the main page or render the author creation form.
-    :rtype: HttpResponse
     """
     if request.method == 'POST':
         form = AuthorForm(request.POST)
@@ -49,11 +39,6 @@ def author_create(request):
 def tag_create(request):
     """
     Handle the creation of a new tag.
-
-    :param request: The HTTP request object.
-    :type request: HttpRequest
-    :return: Redirect to the tag creation page or render the tag creation form.
-    :rtype: HttpResponse
     """
     if request.method == 'POST':
         form = TagForm(request.POST)
@@ -72,11 +57,6 @@ def tag_create(request):
 def quote_create(request):
     """
     Handle the creation of a new quote.
-
-    :param request: The HTTP request object.
-    :type request: HttpRequest
-    :return: Redirect to the quote creation page or render the quote creation form.
-    :rtype: HttpResponse
     """
     form = QuoteForm()
     print(form)
@@ -102,13 +82,6 @@ def quote_create(request):
 def author_details(request, id):
     """
     Display details of a specific author.
-
-    :param request: The HTTP request object.
-    :type request: HttpRequest
-    :param id: The ID of the author.
-    :type id: int
-    :return: Rendered author details page.
-    :rtype: HttpResponse
     """
     item = Author.objects.filter(id=id)[0]
     print(item.name)
@@ -118,15 +91,6 @@ def author_details(request, id):
 def tag_details(request, tag, page=1):
     """
     Display details of a specific tag and its associated quotes.
-
-    :param request: The HTTP request object.
-    :type request: HttpRequest
-    :param tag: The name of the tag.
-    :type tag: str
-    :param page: The page number for pagination.
-    :type page: int
-    :return: Rendered tag details page.
-    :rtype: HttpResponse
     """
     vars = {"notfound": False, "name": tag}
     try:
@@ -150,13 +114,6 @@ def tag_details(request, tag, page=1):
 def quote_details(request, id):
     """
     Display details of a specific quote.
-
-    :param request: The HTTP request object.
-    :type request: HttpRequest
-    :param id: The ID of the quote.
-    :type id: int
-    :return: Rendered quote details page.
-    :rtype: HttpResponse
     """
     item = Quote.objects.filter(pk=id)
     return render(request, 'quotes_app/quote/details.html', {"item": item})
@@ -164,13 +121,6 @@ def quote_details(request, id):
 def author_page(request, page):
     """
     Display a paginated list of authors.
-
-    :param request: The HTTP request object.
-    :type request: HttpRequest
-    :param page: The page number for pagination.
-    :type page: int
-    :return: Rendered author page.
-    :rtype: HttpResponse
     """
     vars = {}
     items = Author.objects.all()
@@ -188,13 +138,6 @@ def author_page(request, page):
 def tag_page(request, page):
     """
     Display a paginated list of tags.
-
-    :param request: The HTTP request object.
-    :type request: HttpRequest
-    :param page: The page number for pagination.
-    :type page: int
-    :return: Rendered tag page.
-    :rtype: HttpResponse
     """
     vars = {}
     tags = list(Tag.objects.annotate(num_quotes=Count('quote')).order_by('-num_quotes').all()[:10])
@@ -211,13 +154,6 @@ def tag_page(request, page):
 def quote_page(request, page):
     """
     Display a paginated list of quotes.
-
-    :param request: The HTTP request object.
-    :type request: HttpRequest
-    :param page: The page number for pagination.
-    :type page: int
-    :return: Rendered quote page.
-    :rtype: HttpResponse
     """
     vars = {}
     quotes = Quote.objects.all()
@@ -234,11 +170,6 @@ def quote_page(request, page):
 def parsing_view(request):
     """
     Display all quotes with their associated authors and tags.
-
-    :param request: The HTTP request object.
-    :type request: HttpRequest
-    :return: Rendered parsing view page.
-    :rtype: HttpResponse
     """
     quotes = Quote.objects.select_related('author').prefetch_related('tags').all()
     return render(request, 'quotes_app/parsing.html', {'quotes': quotes})
@@ -247,11 +178,6 @@ def parsing_view(request):
 def parse_quotes(request):
     """
     Parse quotes from an external website and save them to the database.
-
-    :param request: The HTTP request object.
-    :type request: HttpRequest
-    :return: Redirect to the parsing view page.
-    :rtype: HttpResponse
     """
     url = BASE_URL
     while url:
@@ -262,8 +188,6 @@ def parse_quotes(request):
             text = quote_block.find('span', class_='text').get_text()
             author_name = quote_block.find('small', class_='author').get_text()
             tags = [tag.get_text() for tag in quote_block.find_all('a', class_='tag')]
-
-            # Save author if not already in the database
             author, created = Author.objects.get_or_create(name=author_name)
             if created:
                 author_link = BASE_URL + quote_block.find('a', href=True)['href']

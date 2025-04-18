@@ -5,7 +5,9 @@ from .models import Author, Tag, Quote
 
 
 class AuthorForm(ModelForm):
-
+    """
+    Form for creating and updating authors.
+    """
     name = CharField(label=_("author_name"), max_length=50, required=True, widget=TextInput())
     born_date = CharField(label=_("author_birth_date"), max_length=50, required=True, widget=TextInput())
     born_location = CharField(label=_("author_birth_location"), max_length=50, required=True, widget=TextInput())
@@ -16,7 +18,9 @@ class AuthorForm(ModelForm):
         fields = ['name', 'description', 'born_date', 'born_location']
 
 class TagForm(ModelForm):
-
+    """
+    Form for creating and updating tags.
+    """
     name = CharField(label=_("tag_name"), min_length=3, max_length=25, required=True, widget=TextInput())
     
     class Meta:
@@ -24,6 +28,9 @@ class TagForm(ModelForm):
         fields = ['name']
 
 class QuoteForm(ModelForm):
+    """
+    Form for creating and updating quotes. 
+    """
     author = ModelChoiceField(label=_("quote_author"), queryset=Author.objects.all(), required=True, widget=Select())
     text = CharField(label=_("quote_text"), min_length=10, required=True, widget=TextInput())
     tags = ModelMultipleChoiceField(label=_("select_tags"), queryset=Tag.objects.all(), required=True, widget=SelectMultiple())

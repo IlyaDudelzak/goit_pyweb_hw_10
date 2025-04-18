@@ -1,9 +1,18 @@
+import os
+import django
+from django.conf import settings
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pyweb_hw_10.settings')  # Replace with your settings file path
+django.setup()
+
 import pytest
 from django.urls import reverse
 from django.contrib.auth.models import User
 from quotes_app.models import Author, Tag, Quote
 from quotes_app.forms import AuthorForm, TagForm, QuoteForm
 from unittest.mock import patch
+
+
 
 @pytest.fixture
 def test_user(django_user_model):
